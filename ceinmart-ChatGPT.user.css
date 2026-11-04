@@ -1,0 +1,142 @@
+/* ==UserStyle==
+@name           ceinmart-ChatGPT
+@namespace      https://github.com/ceinmart/stylus-ceinmart-ChatGPT
+@version        1.0.0
+@description    Expande conversas e prompt; ajusta tabelas, codigo e relatorios do ChatGPT.
+@author         ceinmart; criado/adaptado por ChatGPT (OpenAI)
+@homepageURL    https://github.com/ceinmart/stylus-ceinmart-ChatGPT
+@supportURL     https://github.com/ceinmart/stylus-ceinmart-ChatGPT/issues
+@updateURL      https://raw.githubusercontent.com/ceinmart/stylus-ceinmart-ChatGPT/main/ceinmart-ChatGPT.user.css
+@downloadURL    https://raw.githubusercontent.com/ceinmart/stylus-ceinmart-ChatGPT/main/ceinmart-ChatGPT.user.css
+==/UserStyle== */
+
+/*
+ * ceinmart-ChatGPT — v1.0.0
+ * Criado em: 2026-11-04 16:56 BRT (America/Sao_Paulo)
+ * Criado/adaptado por: ChatGPT (OpenAI)
+ * Base: estilo pessoal v1.2.0 fornecido por ceinmart.
+ * Correcoes de tabelas: derivadas do ajuste StretchGPT gpt.3 validado.
+ * Notas: CSS nativo; sem dependencia do pre-processador LESS.
+ */
+
+@-moz-document domain("chatgpt.com") {
+  /* 01. Largura principal: altere somente este valor conforme preferencia. */
+  body {
+    --ceinmart-thread-width: 80vw;
+    --ceinmart-effective-width: min(var(--ceinmart-thread-width), calc(100vw - 32px));
+    --thread-width: var(--ceinmart-effective-width);
+    --thread-shift: 0vw;
+  }
+
+  /* 02. Variaveis compartilhadas pelos containers de conversa e composer. */
+  [data-thread-user-message-navigation-content],
+  [class*="--thread-body-max-width"],
+  [class*="thread-content-max-width"],
+  [data-composer-utility-bar-variant],
+  [data-composer-body] {
+    --thread-body-max-width: var(--ceinmart-effective-width) !important;
+    --thread-content-max-width: var(--ceinmart-effective-width) !important;
+    --thread-content-responsive-max-width: var(--ceinmart-effective-width) !important;
+  }
+
+  /* 03. Editor: a largura depende do wrapper, nao do contenteditable isolado. */
+  [data-composer-body],
+  [data-composer-utility-bar-variant],
+  [data-composer-footer-responsive],
+  [data-composer-input],
+  [data-composer-input-layout] {
+    min-width: 0 !important;
+    box-sizing: border-box;
+  }
+
+  [data-composer-body],
+  [data-composer-utility-bar-variant] {
+    max-width: 100% !important;
+  }
+
+  [data-composer-footer-responsive] [data-composer-input],
+  [data-composer-footer-responsive] [data-composer-input-layout] {
+    flex: 1 1 auto;
+  }
+
+  [data-composer-input] [contenteditable="true"][role="textbox"] {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* 04. Layout antigo (somente quando presente). */
+  #thread .text-base.mx-auto,
+  #thread [class*="text-base"][class*="mx-auto"],
+  #thread [class*="thread-content-max-width"] {
+    width: var(--ceinmart-effective-width) !important;
+    max-width: var(--ceinmart-effective-width) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  #thread [class*="thread-content-margin"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* 05. Corrige o viewport real de tabelas do ChatGPT (DIL).
+     NAO converter <table> em display:block: rolagem pertence ao viewport. */
+  [data-d-table-viewport="true"] {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+  }
+
+  [data-d-table-viewport="true"] > table {
+    display: table !important;
+    width: max-content;
+    max-width: none;
+    border-collapse: separate;
+  }
+
+  /* Contem colunas flex/grid ancestrais sem ocultar o viewport. */
+  [data-thread-user-message-navigation-content] :is(.min-w-0, [data-d-component="table-row"]) {
+    min-width: 0;
+  }
+
+  /* 06. Blocos de codigo e outras midias nunca devem alargar a pagina. */
+  [data-thread-user-message-navigation-content] :is(pre, img, video, iframe, svg) {
+    max-width: 100%;
+  }
+
+  [data-thread-user-message-navigation-content] pre {
+    overflow-x: auto;
+    box-sizing: border-box;
+  }
+
+  /* 07. Relatorios / pesquisa profunda, herdado do estilo pessoal. */
+  div[class*="_reportPage_"] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  div:has(> div > [class*="_reportPage_"]),
+  div.shrink-0.pb-40 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  div[class*="w-[816px]"] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* 08. Nao aplicar alargamento exagerado em telas estreitas. */
+  @media (max-width: 767px) {
+    body {
+      --ceinmart-effective-width: calc(100vw - 24px);
+    }
+  }
+}
