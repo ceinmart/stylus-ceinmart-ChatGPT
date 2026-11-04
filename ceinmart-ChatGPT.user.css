@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ceinmart-ChatGPT
 @namespace      https://github.com/ceinmart/stylus-ceinmart-ChatGPT
-@version        1.0.0
+@version        1.0.1
 @description    Expande conversas e prompt; ajusta tabelas, codigo e relatorios do ChatGPT.
 @author         ceinmart; criado/adaptado por ChatGPT (OpenAI)
 @homepageURL    https://github.com/ceinmart/stylus-ceinmart-ChatGPT
@@ -11,7 +11,7 @@
 ==/UserStyle== */
 
 /*
- * ceinmart-ChatGPT — v1.0.0
+ * ceinmart-ChatGPT — v1.0.1
  * Criado em: 2026-11-04 16:56 BRT (America/Sao_Paulo)
  * Criado/adaptado por: ChatGPT (OpenAI)
  * Base: estilo pessoal v1.2.0 fornecido por ceinmart.
@@ -22,7 +22,7 @@
 @-moz-document domain("chatgpt.com") {
   /* 01. Largura principal: altere somente este valor conforme preferencia. */
   body {
-    --ceinmart-thread-width: 80vw;
+    --ceinmart-thread-width: 95vw;
     --ceinmart-effective-width: min(var(--ceinmart-thread-width), calc(100vw - 32px));
     --thread-width: var(--ceinmart-effective-width);
     --thread-shift: 0vw;
