@@ -7,7 +7,7 @@ Estilo CSS/UserCSS para a extensão [Stylus](https://github.com/openstyles/stylu
 
 ## Funcionalidades
 
-- Conversas e respostas mais largas (largura padrão: `80vw`).
+- Conversas e respostas mais largas (largura padrão: `95vw`).
 - Ajuste de largura do compositor (prompt) junto com a área de respostas.
 - Tabelas do componente `data-d-table-viewport` com rolagem horizontal dentro da área disponível (correção previamente validada em conversa).
 - Contenção de blocos de código, imagens e conteúdo extenso.
@@ -28,7 +28,7 @@ O cabeçalho do arquivo inclui `@updateURL` e `@downloadURL` para permitir atual
 
 ## Configuração
 
-Edite a declaração `--ceinmart-thread-width: 80vw` no início das regras para alterar a largura pretendida (ex.: `90vw`). O valor final é limitado à largura da janela para evitar transbordamento.
+Edite a declaração `--ceinmart-thread-width: 95vw` no início das regras para alterar a largura pretendida (ex.: `90vw` ou `98vw`). O valor final é limitado à largura da janela para evitar transbordamento.
 
 ## Estrutura
 
@@ -39,6 +39,7 @@ Edite a declaração `--ceinmart-thread-width: 80vw` no início das regras para 
 
 | Versão | Data | Alterações |
 |---|---|---|
+| 1.0.1 | 04/11/2026 | Largura padrão ampliada de 80vw para 95vw. |
 | 1.0.0 | 04/11/2026 | Unificação do estilo pessoal v1.2.0 com a correção de tabelas validada no StretchGPT gpt.3, ajustes de editor e relatórios. |
 
 ## Limitações
